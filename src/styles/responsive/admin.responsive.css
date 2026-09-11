@@ -1,0 +1,465 @@
+/* ==========================================================================
+   RESPONSIVE DESIGN SYSTEM: ADMINISTRATIVE PORTAL
+   Breakpoints:
+   - Laptop & Desktop (max-width: 1024px)
+   - Tablets (max-width: 768px)
+   - Mobile Phones (max-width: 600px)
+   - Small Screens (max-width: 420px)
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. ADMIN CONTAINER & TOP BAR (PADDING & MARGINS)
+   -------------------------------------------------------------------------- */
+@media (max-width: 1024px) {
+  .admin-container {
+    padding: 28px 4vw 60px;
+    margin: 0 auto;
+  }
+
+  .admin-top-bar {
+    margin-bottom: 22px;
+    padding-bottom: 16px;
+    gap: 14px;
+  }
+}
+
+@media (max-width: 768px) {
+  .admin-container {
+    padding: 20px 3.5vw 50px;
+  }
+
+  .admin-top-bar {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 14px;
+    margin-bottom: 18px;
+    padding-bottom: 14px;
+  }
+
+  .admin-top-bar h1 {
+    font-size: 22px !important;
+  }
+
+  .admin-top-bar > div:last-child {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .admin-top-bar > div:last-child button {
+    flex: 1;
+    min-width: 130px;
+    padding: 9px 14px;
+    font-size: 13px;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .admin-container {
+    padding: 14px 3vw 40px;
+  }
+
+  .admin-top-bar h1 {
+    font-size: 19px !important;
+  }
+
+  .admin-top-bar p {
+    font-size: 12px !important;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   2. TIME RANGE BAR & STATS KPI CARDS
+   -------------------------------------------------------------------------- */
+@media (max-width: 768px) {
+  .admin-stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+
+  .admin-stat-card {
+    padding: 14px 16px;
+    border-radius: 12px;
+  }
+
+  .admin-stat-card .stat-title {
+    font-size: 11px;
+    margin-bottom: 4px;
+  }
+
+  .admin-stat-card .stat-number {
+    font-size: 22px;
+    margin-bottom: 2px;
+  }
+
+  .admin-stat-card .stat-sub {
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 480px) {
+  .admin-stats-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+    margin-bottom: 16px;
+  }
+
+  .admin-stat-card {
+    padding: 12px 14px;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   3. ADMIN TABS, FILTERS & ACTION TOOLBAR
+   -------------------------------------------------------------------------- */
+@media (max-width: 860px) {
+  .admin-tabs {
+    overflow-x: auto;
+    white-space: nowrap;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    padding-bottom: 4px;
+    margin-bottom: 18px;
+    gap: 6px;
+  }
+
+  .admin-tabs::-webkit-scrollbar {
+    display: none;
+  }
+
+  .admin-tab-btn {
+    padding: 8px 14px;
+    font-size: 13px;
+  }
+
+  .admin-toolbar {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+
+  .admin-filter-group {
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+    max-width: 100%;
+    gap: 8px;
+  }
+
+  .admin-search-input,
+  .admin-select {
+    width: 100%;
+    padding: 9px 12px;
+    font-size: 13px;
+    box-sizing: border-box;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   4. DATA TABLES TO CARDS TRANSFORMATION (MOBILE INVENTORY & AGENCIES)
+   -------------------------------------------------------------------------- */
+@media (max-width: 768px) {
+  .table-wrapper {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    overflow: visible !important;
+  }
+
+  .admin-table,
+  .admin-table thead,
+  .admin-table tbody,
+  .admin-table th,
+  .admin-table td,
+  .admin-table tr {
+    display: block;
+  }
+
+  .admin-table thead tr {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+  }
+
+  .admin-table tbody {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .admin-table tbody tr {
+    background: var(--paper);
+    border: 1.5px solid var(--line);
+    border-radius: 16px;
+    padding: 16px;
+    box-shadow: 0 4px 14px rgba(43, 38, 32, 0.05);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .admin-table tbody tr:hover {
+    background: var(--paper);
+  }
+
+  .admin-table td {
+    padding: 0;
+    border: none;
+    text-align: left !important;
+  }
+
+  /* 1. Item Name & Agency header row */
+  .admin-table td:nth-child(1) {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--line);
+  }
+
+  /* 2. Price banner card */
+  .admin-table td:nth-child(2) {
+    background: #FAF6ED;
+    border-radius: 10px;
+    padding: 8px 12px;
+  }
+
+  .admin-table td:nth-child(2) .admin-price-cell {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  /* 3 & 4. Units & Status pill row */
+  .admin-table td:nth-child(3),
+  .admin-table td:nth-child(4) {
+    display: inline-flex;
+    align-items: center;
+  }
+
+  /* 5. Stock count pill */
+  .admin-table td:nth-child(5) {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--ivory);
+    padding: 8px 12px;
+    border-radius: 10px;
+  }
+
+  .admin-table td:nth-child(5)::before {
+    content: 'Warehouse Stock:';
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--ink-soft);
+  }
+
+  /* 6. Quick Restock / Dispatch stepper cluster */
+  .admin-table td:nth-child(6) {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 6px 0;
+  }
+
+  .admin-table td:nth-child(6)::before {
+    content: 'Stock Operations:';
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--ink-soft);
+  }
+
+  .admin-table td:nth-child(6) .quick-action-cluster {
+    width: auto;
+  }
+
+  /* 7. Edit & Delete action buttons footer */
+  .admin-table td:nth-child(7) {
+    display: flex;
+    justify-content: stretch;
+    border-top: 1px dashed var(--line);
+    padding-top: 10px;
+  }
+
+  .admin-table td:nth-child(7) .action-btns-group {
+    width: 100%;
+    display: flex;
+    gap: 8px;
+  }
+
+  .admin-table td:nth-child(7) .action-btns-group button {
+    flex: 1;
+    justify-content: center;
+    padding: 8px 14px;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   5. ADMIN PIN AUTH SCREEN
+   -------------------------------------------------------------------------- */
+@media (max-width: 500px) {
+  .admin-pin-wrapper {
+    padding: 14px;
+    min-height: calc(85vh - 76px);
+  }
+
+  .admin-pin-card {
+    padding: 24px 18px;
+    border-radius: 16px;
+    margin: 0;
+  }
+
+  .admin-pin-card h2 {
+    font-size: 20px;
+    margin-bottom: 6px;
+  }
+
+  .admin-pin-card p {
+    font-size: 12px;
+    margin-bottom: 18px;
+  }
+
+  .admin-pin-input {
+    padding: 11px 14px;
+    font-size: 15px;
+    margin-bottom: 10px;
+  }
+
+  .admin-pin-actions {
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 12px;
+  }
+
+  .admin-pin-actions button {
+    width: 100%;
+    padding: 11px 14px;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   6. ADMIN TIME RANGE & PERIOD SELECTOR (MOBILE RESPONSIVENESS)
+   -------------------------------------------------------------------------- */
+@media (max-width: 768px) {
+  .admin-time-range-bar {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 10px !important;
+    padding: 12px 14px !important;
+  }
+
+  .admin-time-range-label-wrap {
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .admin-time-range-pills {
+    width: 100%;
+    justify-content: flex-start;
+    overflow-x: auto;
+    white-space: nowrap;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    padding: 4px !important;
+  }
+
+  .admin-time-range-pills::-webkit-scrollbar {
+    display: none;
+  }
+
+  .admin-time-range-pills button {
+    flex: 1 0 auto;
+    text-align: center;
+    padding: 7px 12px !important;
+    font-size: 12px !important;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   7. ADMIN ORDERS & CUSTOMER CARDS (MOBILE RESPONSIVENESS)
+   -------------------------------------------------------------------------- */
+@media (max-width: 768px) {
+  .admin-orders-list {
+    gap: 12px !important;
+  }
+
+  .admin-order-card {
+    border-radius: 12px !important;
+  }
+
+  .admin-order-card > div:first-child {
+    padding: 10px 14px !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 8px !important;
+  }
+
+  .admin-order-card > div:first-child > div:last-child {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .admin-order-card > div:last-child {
+    padding: 12px 14px !important;
+    flex-direction: column !important;
+    gap: 12px !important;
+  }
+
+  .admin-order-card > div:last-child > div {
+    min-width: 100% !important;
+    flex: none !important;
+  }
+
+  .admin-order-card > div:last-child > div:last-child {
+    text-align: left !important;
+    border-top: 1px dashed var(--line);
+    padding-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .admin-order-card > div:last-child > div:last-child > div:last-child {
+    width: 100%;
+    margin-top: 6px;
+  }
+
+  /* Clear Orders Button */
+  .clear-orders-btn {
+    width: 100% !important;
+    justify-content: center !important;
+    padding: 9px 14px !important;
+    font-size: 12.5px !important;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   8. ADMIN FORMS, POPUPS & MODALS (MOBILE RESPONSIVENESS)
+   -------------------------------------------------------------------------- */
+@media (max-width: 768px) {
+  .admin-form-box {
+    padding: 16px 14px !important;
+    border-radius: 14px !important;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+  }
+
+  .form-actions {
+    flex-direction: column-reverse;
+    gap: 8px !important;
+  }
+
+  .form-actions button {
+    width: 100%;
+    justify-content: center;
+    padding: 11px 16px !important;
+  }
+}
+

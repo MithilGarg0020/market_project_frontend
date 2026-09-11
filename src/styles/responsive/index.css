@@ -1,0 +1,7 @@
+/* ==========================================================================
+   MASTER RESPONSIVE STYLESHEET
+   Bundles responsive rules for User Storefront & Admin Portal
+   ========================================================================== */
+
+@import './user.responsive.css';
+@import './admin.responsive.css';
